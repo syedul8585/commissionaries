@@ -115,7 +115,7 @@
                 console.log("clock in");
                 const guardId = Number(document.querySelector('#text-box').value);
                 console.log(guardId);
-                fetch('http://127.0.0.1:8000/ClockInSystem/clockin', {
+                fetch('https://commissionaries.onrender.com/ClockInSystem/clockin', {
                     method: 'POST',
                     body: JSON.stringify({
                         guardId: guardId
@@ -138,7 +138,7 @@
                 console.log("clock out");
                 const guardId = Number(document.querySelector('#text-box').value);
                 console.log(guardId);
-                fetch('http://127.0.0.1:8000/ClockInSystem/clockout', {
+                fetch('https://commissionaries.onrender.com/ClockInSystem/clockout', {
                     method: 'PUT',
                     body: JSON.stringify({
                         guardId: guardId
@@ -167,7 +167,7 @@
                 document.querySelector('#clock-container').style.display = 'none'; 
                 document.querySelector('#schedule-container').style.display = 'flex'; 
 
-                fetch('http://127.0.0.1:8000/ClockInSystem/log')  
+                fetch('https://commissionaries.onrender.com/ClockInSystem/log')  
                 .then(response => response.json())
                 .then(data => {
                 
