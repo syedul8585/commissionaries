@@ -9,7 +9,7 @@ from .serializers import logSerializer
 from django.views.decorators.csrf import csrf_exempt
 from .models import ClockInLog
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 
@@ -31,6 +31,7 @@ def clockin(request):
     print("Local time:", local_time)
 
     clock_in_time = datetime.strptime(local_time, "%a %b %d %H:%M:%S %Y")
+    clock_in_time = clock_in_time - timedelta(hours=2, minutes=30)
     
 
     if request.method == "POST":
@@ -56,6 +57,7 @@ def clockout(request):
     print("Local time:", local_time)
 
     clock_out_time = datetime.strptime(local_time, "%a %b %d %H:%M:%S %Y")
+    clock_out_time = clock_out_time - timedelta(hours=2, minutes=30)
     
     if request.method == "PUT":
         data = json.loads(request.body)
